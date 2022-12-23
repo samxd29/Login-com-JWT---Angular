@@ -1,0 +1,17 @@
+<header class="stick-top">
+  <nav class="navbar navbar-ligth bg-white">
+    <a class="navbar-brnad">Gatito Book</a>
+    <!--Método async que é um método de desenvelopar, de pegar a informação do observable no próprio template sem precisar do observable -->
+    <div *ngIf="user$ | async as user">
+      <div *ngIf="user.name; else login">
+        <i class="fa-user-circle mr-1">
+        </i>
+        <a class="mr-1">{{ user.name}}</a>
+        <a (click)="logout">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <ng-template #login><span class="navbar-text">
+    <a [routerLink]="['']">Login!</a>
+  </span></ng-template>
+</header>
